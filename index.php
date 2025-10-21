@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動發起</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>發起活動</h1>
+        <form action="submit_activity.php" method="POST">
+            <label for="event_name">活動名稱：</label>
+            <input type="text" id="event_name" name="event_name" required>
+
+            <label for="total_amount">總金額：</label>
+            <input type="number" id="total_amount" name="total_amount" required>
+
+            <label for="num_people">平分人數：</label>
+            <input type="number" id="num_people" name="num_people" required>
+
+            <label for="deadline">截止日期：</label>
+            <input type="date" id="deadline" name="deadline" required>
+
+            <label for="reminder_freq">提醒頻率：</label>
+            <select id="reminder_freq" name="reminder_freq">
+                <option value="1">1天前</option>
+                <option value="2">2天前</option>
+                <option value="3">3天前</option>
+            </select>
+
+            <button type="submit">發起活動</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+</style>
