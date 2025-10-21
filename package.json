@@ -1,0 +1,24 @@
+{
+  "name": "splitthebill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuchansun/split_the_bill.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yuchansun/split_the_bill/issues"
+  },
+  "homepage": "https://github.com/yuchansun/split_the_bill#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
