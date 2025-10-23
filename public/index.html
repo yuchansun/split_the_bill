@@ -3,36 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活動發起</title>
+    <title>活動發起 - Split The Bill</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>發起活動</h1>
-        <form action="submit_activity.php" method="POST">
-            <label for="event_name">活動名稱：</label>
-            <input type="text" id="event_name" name="event_name" required>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center py-3">
+                        <h2 class="mb-0"><i class="fas fa-users me-2"></i>發起活動</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="submit_activity.php" method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="event_name" class="form-label">
+                                    <i class="fas fa-calendar-alt me-2"></i>活動名稱
+                                </label>
+                                <input type="text" class="form-control" id="event_name" name="event_name" required>
+                                <div class="invalid-feedback">請輸入活動名稱</div>
+                            </div>
 
-            <label for="total_amount">總金額：</label>
-            <input type="number" id="total_amount" name="total_amount" required>
+                            <div class="mb-3">
+                                <label for="total_amount" class="form-label">
+                                    <i class="fas fa-dollar-sign me-2"></i>總金額
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">NT$</span>
+                                    <input type="number" class="form-control" id="total_amount" name="total_amount" required min="0">
+                                    <div class="invalid-feedback">請輸入有效金額</div>
+                                </div>
+                            </div>
 
-            <label for="num_people">平分人數：</label>
-            <input type="number" id="num_people" name="num_people" required>
+                            <div class="mb-3">
+                                <label for="num_people" class="form-label">
+                                    <i class="fas fa-user-friends me-2"></i>平分人數
+                                </label>
+                                <input type="number" class="form-control" id="num_people" name="num_people" required min="2">
+                                <div class="invalid-feedback">至少需要2人</div>
+                            </div>
 
-            <label for="deadline">截止日期：</label>
-            <input type="date" id="deadline" name="deadline" required>
+                            <div class="mb-3">
+                                <label for="deadline" class="form-label">
+                                    <i class="fas fa-clock me-2"></i>截止日期
+                                </label>
+                                <input type="date" class="form-control" id="deadline" name="deadline" required>
+                                <div class="invalid-feedback">請選擇截止日期</div>
+                            </div>
 
-            <label for="reminder_freq">提醒頻率：</label>
-            <select id="reminder_freq" name="reminder_freq">
-                <option value="1">1天前</option>
-                <option value="2">2天前</option>
-                <option value="3">3天前</option>
-            </select>
+                            <div class="mb-4">
+                                <label for="reminder_freq" class="form-label">
+                                    <i class="fas fa-bell me-2"></i>提醒頻率
+                                </label>
+                                <select class="form-select" id="reminder_freq" name="reminder_freq" required>
+                                    <option value="">請選擇提醒頻率</option>
+                                    <option value="1">1天前提醒</option>
+                                    <option value="2">2天前提醒</option>
+                                    <option value="3">3天前提醒</option>
+                                </select>
+                                <div class="invalid-feedback">請選擇提醒頻率</div>
+                            </div>
 
-            <button type="submit">發起活動</button>
-        </form>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>發起活動
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Form validation script -->
+    <script>
+        (() => {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
 </body>
 </html>
-
-
